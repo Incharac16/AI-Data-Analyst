@@ -5,8 +5,7 @@ import type {
   UploadResponse,
 } from "../types";
 
-const API_BASE = "https://ai-data-analyst-backend-nhrt.onrender.com";
-
+cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173,https://YOUR-VERCEL-URL.vercel.app"
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: res.statusText }));
