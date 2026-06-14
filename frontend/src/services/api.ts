@@ -5,7 +5,7 @@ import type {
   UploadResponse,
 } from "../types";
 
-cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173,https://YOUR-VERCEL-URL.vercel.app"
+cors_origins: str = "*"
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: res.statusText }));
