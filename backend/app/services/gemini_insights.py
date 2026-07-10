@@ -41,7 +41,6 @@ def generate_insights(dataset_id: str, question: str | None = None) -> str:
             "GEMINI_API_KEY is not configured. Add it to backend/.env to enable AI insights."
         )
 
-    meta = DatasetStore.get(dataset_id)
     context = _build_context(dataset_id)
 
     genai.configure(api_key=settings.gemini_api_key)
