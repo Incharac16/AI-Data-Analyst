@@ -65,8 +65,9 @@ User request:
     try:
         response = model.generate_content(prompt)
         return response.text
+
     except Exception as e:
-        return """
+        return f"Gemini Error: {str(e)}"
 ### Dataset Insights
 
 AI service is currently unavailable.
