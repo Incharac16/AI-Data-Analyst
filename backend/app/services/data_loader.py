@@ -1,8 +1,6 @@
 from fastapi import APIRouter, UploadFile, File
 import pandas as pd
 
-from app.services.data_loader import save_upload
-
 router = APIRouter()
 
 
