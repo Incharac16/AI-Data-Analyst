@@ -68,17 +68,4 @@ User request:
 
     except Exception as e:
         return f"Gemini Error: {str(e)}"
-### Dataset Insights
 
-AI service is currently unavailable.
-
-Meanwhile, consider:
-
-• Checking missing values
-• Reviewing outliers
-• Comparing category distributions
-• Analyzing correlations
-• Monitoring revenue trends
-
-Retry later for AI-generated recommendations.
-"""
