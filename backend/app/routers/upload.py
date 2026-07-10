@@ -1,17 +1,20 @@
 from fastapi import APIRouter, UploadFile, File
-import uuid
 import pandas as pd
-from app.services.data_loader import DatasetStore
+from app.services.data_loader import save_upload
 
 router = APIRouter()
 
+
 @router.post("/api/upload")
 async def upload(file: UploadFile = File(...)):
-    dataset_id = str(uuid.uuid4())
+    contents = await file.read()
 
-    df = pd.read_csv(file.file)
+    dataset_id, file_path = save_upload(contents, file.filename)
 
-    DatasetStore.save(dataset_id, file.filename, df)
+    if file.filename.endswith(".csv"):
+        df = pd.read_csv(file_path)
+    else:
+        df = pd.read_excel(file_path)
 
     return {
         "dataset_id": dataset_id,
